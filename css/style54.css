@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    outline: #111 solid 1px; /* Solo para visualizar los límites de cada elemento durante el desarrollo */
 }
 
 body {
