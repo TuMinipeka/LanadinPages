@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #fff;
+}
+
+/* ─── LAYOUT: 3 columnas ─── */
+.general {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 30px;
+    gap: 30px;
+}
+
+/* ─── COLUMNA IZQUIERDA ─── */
+.left {
+    position: relative;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 60px; /* espacio para el logo que sale arriba */
+}
+
+/* Logo circular: posicionado arriba a la derecha del título */
+.content-logo {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.content-logo img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+.laptop-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 16px;
+}
+
+.left-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ─── COLUMNAS CENTRO Y DERECHA ─── */
+.center,
+.end {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiqueta "Creative" / "Design" */
+.label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Foto grande */
+.img {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* Fila inferior: número grande + texto */
+.footer-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #c1bbbb;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.footer-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 6px;
+}
+
+/* ─── TABLET (menos de 1024px) ─── */
+@media (max-width: 1024px) {
+    .general {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .left {
+        width: 100%;
+        padding-top: 60px;
+    }
+
+    .laptop-image {
+        width: 100%;
+        height: 260px;
+    }
+
+    .center,
+    .end {
+        width: 48%;
+    }
+
+    .img {
+        height: 400px;
+    }
+}
+
+/* ─── MÓVIL (menos de 768px) ─── */
+@media (max-width: 768px) {
+    .general {
+        flex-direction: column;
+        padding: 24px 16px;
+        gap: 32px;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .center,
+    .end {
+        width: 100%;
+    }
+
+    .img {
+        height: 320px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .content-logo {
+        top: 0px;
+        right: 0px;
+    }
+}
