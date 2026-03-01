@@ -1,0 +1,142 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #922c1c;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 0 6%;
+  gap: 5rem;
+}
+
+/* Imagen con círculo y puntos */
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 35vw;   
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* Círculo amarillo */
+.circle {
+  position: absolute;
+  width: 60vw;   
+  height: 60vw;
+  max-width: 600px;   
+  max-height: 600px;
+  background: #e7b93d;
+  border-radius: 50%;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Puntos decorativos */
+.dots {
+  position: absolute;
+  width: 15vw;
+  height: 15vw;
+  max-width: 220px;
+  max-height: 220px;
+  background-image: radial-gradient(#fff 2px, transparent 2px);
+  background-size: 16px 16px;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/* posición arriba a la izquierda */
+.dots.top-left {
+  top: 5%;
+  left: -5%;
+}
+
+/* posición abajo a la derecha */
+.dots.bottom-right {
+  bottom: 5%;
+  right: -5%;
+}
+
+/* Texto */
+.hero-text {
+  max-width: 700px;
+}
+
+.hero-text h1 {
+  font-size: clamp(3.5rem, 6vw, 5rem); 
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  color: #f1f1f1;
+  line-height: 1.7;
+}
+
+/* Botón */
+.btn {
+  display: inline-block;
+  background: #e7b93d;
+  color: #222;
+  padding: 1.2rem 3.5rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.4rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #d4a72f;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .hero-image img {
+    max-width: 60vw;
+  }
+  .circle {
+    width: 60vw;
+    height: 60vw;
+  }
+  .dots {
+    width: 25vw;
+    height: 25vw;
+  }
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+  .hero-text p {
+    font-size: 1.2rem;
+  }
+}
