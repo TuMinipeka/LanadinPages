@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    min-height: 100vh;
+}
+
+/* ─── LAYOUT: dos columnas ─── */
+.container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px;
+    gap: 40px;
+}
+
+/* ─── COLUMNA IZQUIERDA ─── */
+.left-content {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #2b1a00;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    max-width: 380px;
+}
+
+.button {
+    background-color: #ebd65e;
+    color: #333;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: fit-content;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #e6c200;
+}
+
+/* ─── STATS ─── */
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b2114;
+    padding: 24px 28px;
+    border-radius: 12px;
+    gap: 12px;
+    max-width: 420px;
+}
+
+.stat {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.stat span {
+    font-size: 0.75rem;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.stat img {
+    width: 40px;
+    height: auto;
+    opacity: 0.6;
+}
+
+/* ─── COLUMNA DERECHA ─── */
+.right-content {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .container {
+        padding: 40px 36px;
+        gap: 28px;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .left-content {
+        width: 48%;
+    }
+
+    .right-content {
+        width: 52%;
+    }
+}
+
+/* ─── MÓVIL (max 768px) ─── */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 40px 24px;
+        gap: 32px;
+        align-items: flex-start;
+    }
+
+    .left-content,
+    .right-content {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+
+    .stats-container {
+        max-width: 100%;
+    }
+
+    .main-image {
+        max-width: 100%;
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
+@media (max-width: 480px) {
+    .container {
+        padding: 28px 16px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
