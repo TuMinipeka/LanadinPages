@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+}
+
+/* ─── SECCIÓN SUPERIOR ─── */
+.simple {
+    display: flex;
+    justify-content: flex-start;
+    padding: 80px 10%;
+    gap: 20px;
+}
+
+.text-left h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    padding: 0 60px 0 190px;
+    color: #111;
+    margin: 0;
+}
+
+.text-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 400px;
+}
+
+.text-right p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* ─── BOTÓN ─── */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: #111;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #333;
+}
+
+/* ─── IMAGEN INFERIOR ─── */
+.simple-image img {
+    width: 80%;
+    max-width: 800px;
+    display: block;
+    margin: 0px auto;
+    border-radius: 8px;
+}
+
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .simple {
+        padding: 60px 6%;
+        gap: 30px;
+    }
+
+    .text-left h1 {
+        font-size: 2.4rem;
+        padding: 0 20px 0 60px;
+    }
+
+    .text-right {
+        max-width: 340px;
+    }
+
+    .simple-image img {
+        width: 90%;
+    }
+}
+
+/* ─── MÓVIL (max 768px) ─── */
+@media (max-width: 768px) {
+    .simple {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 48px 20px;
+        gap: 24px;
+    }
+
+    .text-left h1 {
+        font-size: 2rem;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .text-right {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .text-right p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        align-self: center;
+    }
+
+    .simple-image img {
+        width: 100%;
+        border-radius: 6px;
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
+@media (max-width: 480px) {
+    .simple {
+        padding: 36px 16px;
+    }
+
+    .text-left h1 {
+        font-size: 1.6rem;
+    }
+
+    .text-right p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px 28px;
+        font-size: 0.85rem;
+    }
+}
