@@ -11,10 +11,9 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    min-height: 100vh;
 }
 
-/* ─── LAYOUT PRINCIPAL: dos columnas ─── */
+/* ─── LAYOUT PRINCIPAL ─── */
 .general {
     display: flex;
     flex-wrap: wrap;
@@ -26,7 +25,6 @@ body {
     width: 45%;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
     padding: 60px 40px;
 }
@@ -42,7 +40,6 @@ body {
     background: transparent;
 }
 
-/* Logo circular: sale por arriba del card */
 .card-logo {
     position: absolute;
     top: -45px;
@@ -55,7 +52,6 @@ body {
     object-fit: contain;
 }
 
-/* Descripción dentro del card */
 .card-description {
     font-size: 14px;
     line-height: 1.7;
@@ -63,7 +59,6 @@ body {
     margin-bottom: 28px;
 }
 
-/* ─── GRID DE ESTADÍSTICAS: 2 columnas ─── */
 .stats-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -86,14 +81,11 @@ body {
 /* ─── MITAD DERECHA ─── */
 .right {
     width: 55%;
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: flex-start;
     padding: 80px 60px;
 }
 
-/* Texto encima del fondo */
 .text {
     max-width: 520px;
 }
@@ -129,3 +121,87 @@ body {
     background-color: #333;
 }
 
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .left {
+        width: 45%;
+        padding: 40px 24px;
+    }
+
+    .right {
+        width: 55%;
+        padding: 60px 40px;
+        align-items: center;
+    }
+
+    .text h1 {
+        font-size: 34px;
+    }
+
+    .card-logo {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* ─── MÓVIL (max 768px) ─── */
+@media (max-width: 768px) {
+    .general {
+        flex-direction: column;
+    }
+
+    /* derecha sube, izquierda baja */
+    .right {
+        width: 100%;
+        order: 1;
+        padding: 60px 24px 32px;
+        align-items: flex-start;
+    }
+
+    .left {
+        width: 100%;
+        order: 2;
+        padding: 60px 24px 48px;
+    }
+
+    .text {
+        max-width: 100%;
+    }
+
+    .text h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .card-logo {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
+@media (max-width: 480px) {
+    .right {
+        padding: 48px 16px 24px;
+    }
+
+    .left {
+        padding: 48px 16px 40px;
+    }
+
+    .text h1 {
+        font-size: 26px;
+    }
+
+    .button {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+
+    .stat h2 {
+        font-size: 18px;
+    }
+}
