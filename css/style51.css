@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.general {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ─── COLUMNA IZQUIERDA ─── */
+.left {
+    background-image: url(../image/image51/image\ bg.png);
+    background-position: center;
+    background-size: cover;
+    width: 50%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    position: relative;
+}
+
+/* Pattern de puntos en esquina superior izquierda */
+.logo img {
+    width: 120px;
+    opacity: 0.7;
+}
+
+/* Texto y botón en la parte inferior */
+.under-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 20px;
+}
+
+.text {
+    font-size: 26px;
+    line-height: 1.8;
+    color: #ffffffd0;
+    text-align: left;
+}
+
+.button {
+    background-color: #ffffff;
+    color: #222;
+    border: none;
+    padding: 14px 48px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #5bd2ca;
+    color: #fff;
+}
+
+/* ─── COLUMNA DERECHA ─── */
+.right {
+    background-image: url(../image/image51/image\ bg2.png);
+    background-position: center;
+    background-size: cover;
+    width: 50%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+}
+
+/* Gran letra D decorativa de fondo */
+.right::after {
+    content: 'D';
+    position: absolute;
+    right: -10px;
+    bottom: 40px;
+    font-size: 520px;
+    color: rgba(255, 255, 255, 0.07);
+    line-height: 1;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 1.25;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 48px;
+}
+
+/* Grid 2x2 de estadísticas */
+.grid-stat {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 40px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffffa0;
+}
+
+.stat p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #ffffffdf;
+}
+
+/* ─── RESPONSIVO ─── */
+@media (max-width: 768px) {
+    .general {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        min-height: 50vh;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .grid-stat {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
