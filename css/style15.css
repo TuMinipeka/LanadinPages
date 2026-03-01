@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #f9f9f9;
+    color: #222;
+  }
+  
+  .adventure {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* -------- Columna izquierda -------- */
+  .left h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .left p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+  
+  button {
+    background: #2e6a4a;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+  
+  button:hover {
+    background: #244f37;
+  }
+  
+  .small-images {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; 
+  }
+  
+  .small-images img {
+    width: 120px;
+    height: 180px;
+    border-radius: 60px;
+    object-fit: cover;
+  }
+  
+  /* -------- Imagen central -------- */
+  .center {
+    text-align: center;
+    position: relative;
+  }
+  
+  .big-img {
+    width: 100%;         
+    max-width: 380px;     
+    height: auto;        
+    display: block;
+    margin: auto;
+    border-radius: 0;    
+    object-fit: contain;  
+  }
+  
+  .decor-text {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    font-style: italic;
+    color: #333;
+  }
+  
+  /* -------- Columna derecha -------- */
+  .right {
+    text-align: left;
+  }
+  
+  .right .oval {
+    width: 120px;
+    height: 180px;
+    border-radius: 60px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .right p {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 1.5rem 0;
+  }
+  
+  .right h2 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+
+  }
+
+  
+  /* -------- Responsive -------- */
+  @media (max-width: 900px) {
+    .adventure {
+      grid-template-columns: 1fr; 
+      text-align: center;
+    }
+  
+    .left, 
+    .center, 
+    .right {
+      text-align: center; 
+    }
+  
+    .small-images {
+      justify-content: center;
+    }
+  
+    .right {
+      margin-top: 2rem;
+    }
+  
+    .right .small-images {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .left h1 {
+      font-size: 2rem;
+    }
+  
+    .big-img {
+      max-width: 280px; 
+    }
+  
+    .small-images img,
+    .right .oval {
+      width: 100px;
+      height: 150px;
+      border-radius: 50px;
+    }
+  }
+  
+  
