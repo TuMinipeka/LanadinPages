@@ -1,0 +1,262 @@
+@font-face {
+    font-family: 'AvenirCustom';
+    src: url('../font/Avenir-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'AvenirCustom', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+}
+
+/* ─── LAYOUT: dos columnas ─── */
+.container {
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 60px;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ─── COLUMNA IZQUIERDA: texto ─── */
+.left-content {
+    width: 35%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 20px;
+    z-index: 10;
+}
+
+h1 {
+    font-size: 5rem;
+    color: #333;
+    line-height: 1;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.button {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: fit-content;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #333;
+}
+
+/* ─── COLUMNA DERECHA: imágenes en cascada ─── */
+.right-content {
+    flex: 1;
+    position: relative;
+    min-height: 550px;
+}
+
+.image-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 42%;
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.image-2 {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    width: 42%;
+    border-radius: 12px;
+    z-index: 2;
+}
+
+.image-3 {
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    width: 42%;
+    border-radius: 12px;
+    z-index: 2;
+}
+
+/* ─── PERFIL + TEXTO INFERIOR ─── */
+.profile-block {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 280px;
+    z-index: 10;
+}
+
+.profile {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.text-bottom {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ─── DECORACIONES: absolutas respecto al container ─── */
+.decoration {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.wave {
+    top: 20px;
+    left: 36%;
+    width: 18rem;
+}
+
+.spiral {
+    bottom: 80px;
+    left: 28%;
+    width: 7rem;
+}
+
+.star-1 {
+    top: 45%;
+    left: 32%;
+    width: 10rem;
+}
+
+.star-2 {
+    bottom: 15%;
+    right: 8%;
+    width: 10rem;
+}
+
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .container {
+        padding: 32px 36px;
+        gap: 24px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .left-content {
+        width: 40%;
+    }
+
+    .wave {
+        width: 12rem;
+        left: 38%;
+    }
+
+    .image-1, .image-2, .image-3 {
+        width: 46%;
+    }
+}
+
+/* ─── MÓVIL (max 768px) ─── */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 32px;
+        overflow: visible;
+    }
+
+    .left-content {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    p {
+        max-width: 100%;
+    }
+
+    /* Imágenes en fila de 2 en móvil */
+    .right-content {
+        width: 100%;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        position: relative;
+    }
+
+    .image-1, .image-2, .image-3 {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .image-1 { grid-column: 2; grid-row: 1; }
+    .image-2 { grid-column: 1; grid-row: 1; }
+    .image-3 { grid-column: 1 / span 2; grid-row: 2; height: 200px; object-fit: cover; }
+
+    .profile-block {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        max-width: 100%;
+        margin-top: 8px;
+    }
+
+    /* Ocultar decoraciones en móvil para no saturar */
+    .wave, .spiral, .star-1, .star-2 {
+        display: none;
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
+@media (max-width: 480px) {
+    .container {
+        padding: 24px 16px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .right-content {
+        grid-template-columns: 1fr;
+    }
+
+    .image-1 { grid-column: 1; grid-row: 1; }
+    .image-2 { grid-column: 1; grid-row: 2; }
+    .image-3 { grid-column: 1; grid-row: 3; height: auto; }
+}
