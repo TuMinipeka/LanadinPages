@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+/* ─── HERO ─── */
+.plant-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 10%;
+    background: #f9f9f9;
+    border-radius: 0 0 40px 40px;
+}
+
+/* ─── TEXTO IZQUIERDO ─── */
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    color: #111;
+}
+
+.green {
+    color: #2e7d32;
+}
+
+.hero-text > p {
+    font-size: 1rem;
+    margin-bottom: 28px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ─── STATS ─── */
+.stats {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 28px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-item h3 {
+    font-size: 1.4rem;
+    color: #111;
+    margin: 0;
+}
+
+.stat-item hr {
+    border: none;
+    border-top: 2px solid #ccc;
+    width: 100%;
+    margin: 2px 0;
+}
+
+.stat-item p {
+    font-size: 0.82rem;
+    color: #777;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.hero-text button {
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    padding: 13px 32px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.hero-text button:hover {
+    background: #256427;
+}
+
+/* ─── IMAGEN + LOGO ─── */
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image > img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Logo circular flotando arriba a la derecha */
+.logo-circle {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    z-index: 10;
+}
+
+.logo-circle img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+/* ─── CARDS ─── */
+.plant-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 10%;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.card p {
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .plant-hero {
+        padding: 50px 6%;
+        gap: 28px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .plant-cards {
+        padding: 32px 6%;
+    }
+}
+
+/* ─── MÓVIL GRANDE (max 900px) ─── */
+@media (max-width: 900px) {
+    .plant-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 8%;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+
+    .logo-circle {
+        top: 0;
+        right: 10px;
+    }
+
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        align-items: center;
+    }
+
+    .hero-text button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .plant-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ─── MÓVIL (max 600px) ─── */
+@media (max-width: 600px) {
+    .plant-hero {
+        padding: 32px 5%;
+        border-radius: 0 0 24px 24px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.7rem;
+    }
+
+    .plant-cards {
+        grid-template-columns: 1fr;
+        padding: 24px 5%;
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 400px) ─── */
+@media (max-width: 400px) {
+    .hero-text h1 {
+        font-size: 1.4rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+}
