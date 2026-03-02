@@ -1,0 +1,143 @@
+/* Importamos una fuente moderna similar a la del diseño */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+/* Reset básico para eliminar márgenes por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* Contenedor Principal (Hero Section) */
+.general {
+    width: 100%;
+    min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
+    
+    /* CONFIGURACIÓN DEL FONDO - IMPORTANTE */
+    /* Reemplaza 'URL_DE_TU_IMAGEN.jpg' con la ruta real de tu imagen del hombre con VR */
+    background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('../image/image23/1.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Layout Flex para distribuir contenido arriba y abajo */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el contenido arriba y las tarjetas abajo */
+    padding: 5% 8%; /* Espaciado interno general */
+    color: white;
+}
+
+/* --- Sección Superior (Título y Botón) --- */
+.up-content {
+    max-width: 600px; /* Limita el ancho para que no se extienda demasiado */
+    margin-top: 50px;
+}
+
+.up-content h1 {
+    font-size: 4rem; /* Tamaño grande para el título */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.up-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d1d1d1; /* Un blanco grisáceo para el texto secundario */
+    margin-bottom: 30px;
+}
+
+/* Estilo del Botón */
+.button {
+    padding: 15px 35px;
+    background-color: white;
+    color: #0d0d0d;
+    border: none;
+    border-radius: 50px; /* Bordes redondeados tipo píldora */
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- Sección Inferior (Tarjetas) --- */
+.under-content {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.grid-state {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 30px; /* Espacio entre tarjetas */
+}
+
+/* Estilo de cada tarjeta (Efecto Glassmorphism) */
+.state {
+    /* Fondo semitransparente oscuro */
+    background: rgba(255, 255, 255, 0.1); 
+    /* El filtro blur es lo que da el efecto de vidrio esmerilado */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    border-radius: 15px;
+    padding: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.state:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.state h2 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.state p {
+    font-size: 1.2rem;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+/* --- RESPONSIVE DESIGN (Móvil) --- */
+@media screen and (max-width: 768px) {
+    .general {
+        padding: 20px;
+        height: auto; /* Permite que crezca si el contenido es mucho */
+        min-height: 100vh;
+    }
+
+    .up-content h1 {
+        font-size: 2.5rem; /* Título más pequeño en móvil */
+    }
+
+    /* Cambiamos las tarjetas a una columna */
+    .grid-state {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    /* Reducimos el ancho de las tarjetas al 100% de su contenedor */
+    .state {
+        width: 100%;
+    }
+}
