@@ -178,24 +178,7 @@ body {
   filter: brightness(1.1);
 }
 
-/* ════════════════════════════
-   ANIMACIONES
-   ════════════════════════════ */
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
-.titulo h1     { animation: aparecer 0.6s ease both; }
-.titulo p      { animation: aparecer 0.6s 0.1s ease both; }
-.boton         { animation: aparecer 0.6s 0.2s ease both; }
-.fotos-derecha { animation: aparecer 0.7s 0.08s ease both; }
-.section2      { animation: aparecer 0.6s 0.18s ease both; }
-.galeria       { animation: aparecer 0.6s 0.26s ease both; }
-
-/* ════════════════════════════
-   RESPONSIVE — TABLET < 768px
-   ════════════════════════════ */
 @media (max-width: 768px) {
   body { padding: 36px 24px; }
 

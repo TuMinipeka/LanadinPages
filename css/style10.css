@@ -9,7 +9,7 @@ body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   background: #222;
   color: #fff;
-  min-height: 100vh;
+  min-height: 0vh;
 }
 
 /* Hero principal */
@@ -18,7 +18,7 @@ body {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   min-height: 100vh;
-  padding: 4rem 5%;
+  padding: 2rem 5%;
   gap: 2rem;
 }
 
@@ -65,15 +65,14 @@ body {
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.7rem; 
+
 }
 
 .hero-grid img {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   border-radius: 15px;
-  object-fit: cover;
-  transform: scale(0.8); 
+
 }
 
 /* Responsive */
@@ -94,7 +93,7 @@ body {
 
 @media (max-width: 600px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 2fr);
   }
 
   .hero-text h1 {
