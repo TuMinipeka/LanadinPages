@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* ─── CONTENEDOR PRINCIPAL ─── */
+.general {
+    background-image: url('../image/image16/caballo.jpg');
+    background-color: rgba(55, 117, 98, 0.708);
+    background-size: cover;
+    
+    background-position: 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Overlay oscuro sobre la imagen */
+.general::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 20, 40, 0.55) 0%,
+        rgba(0, 10, 20, 0.3) 60%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+    z-index: 0;
+}
+
+/* ─── CONTENIDO SUPERIOR IZQUIERDO ─── */
+.up-right {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    padding: 48px 48px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Barra de colores arriba del título */
+.up-right::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(to right, #f00, #ff0, #0f0, #00f);
+    border-radius: 3px;
+    margin-bottom: 4px;
+}
+
+.up-right h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.up-right p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.button {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    width: fit-content;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s;
+}
+
+.button:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: #fff;
+}
+
+/* ─── SECCIÓN INFERIOR: 4 stats ─── */
+.under {
+    position: relative;
+    z-index: 1;
+    padding: 0 32px 32px;
+}
+
+.grid-state {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    background: rgba(10, 15, 25, 0.65);
+    backdrop-filter: blur(8px);
+    border-radius: 14px;
+    padding: 20px 24px;
+}
+
+.state, .Interstellar {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    padding-left: 16px;
+}
+
+/* Primera sin borde izquierdo */
+.state:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.state h3, .Interstellar h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.state p, .Interstellar p {
+    font-size: 0.78rem;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* Icono pequeño antes del título */
+.state::before, .Interstellar::before {
+    content: '⌁';
+    font-size: 0.9rem;
+    color: #7ec8e3;
+}
+
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .up-right {
+        padding: 40px 36px 0;
+    }
+
+    .up-right h1 {
+        font-size: 1.8rem;
+    }
+
+    .under {
+        padding: 0 24px 24px;
+    }
+}
+
+/* ─── MÓVIL (max 768px) ─── */
+@media (max-width: 768px) {
+    .up-right {
+        max-width: 100%;
+        padding: 36px 24px 0;
+    }
+
+    .grid-state {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    /* Resetear bordes en grid 2x2 */
+    .state, .Interstellar {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        padding-top: 12px;
+    }
+
+    .state:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
+@media (max-width: 480px) {
+    .up-right h1 {
+        font-size: 1.5rem;
+    }
+
+    .grid-state {
+        grid-template-columns: 1fr;
+    }
+
+    .under {
+        padding: 0 16px 20px;
+    }
+}
