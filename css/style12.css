@@ -1,262 +1,229 @@
-@font-face {
-    font-family: 'AvenirCustom';
-    src: url('../font/Avenir-Regular.ttf') format('truetype');
-}
-
+/* --- 1. Reset y Configuración de Pantalla --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'AvenirCustom', sans-serif;
 }
 
 body {
-    background-color: #f0f0f0;
-    min-height: 100vh;
+    background-color: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif; /* Inter es ideal para este look */
+    color: #000;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ─── LAYOUT: dos columnas ─── */
+/* --- 2. Contenedor Principal --- */
 .container {
     display: flex;
-    align-items: flex-start;
+    max-width: 1440px;
+    margin: 0 auto;
     min-height: 100vh;
-    padding: 40px 60px;
-    gap: 40px;
+    padding: 80px 6%;
     position: relative;
-    overflow: hidden;
+    align-items: center; /* Alineación vertical central */
 }
 
-/* ─── COLUMNA IZQUIERDA: texto ─── */
+/* --- 3. Bloque de Texto (Izquierda) --- */
 .left-content {
-    width: 35%;
-    flex-shrink: 0;
+    width: 38%;
+    z-index: 20;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding-top: 20px;
-    z-index: 10;
 }
 
 h1 {
-    font-size: 5rem;
-    color: #333;
-    line-height: 1;
+    /* Tamaño fluido y tipografía muy compacta */
+    font-size: clamp(3.5rem, 6.5vw, 5.8rem);
+    line-height: 0.82; /* Detalle crítico: letras casi tocándose verticalmente */
+    font-weight: 800;
+    letter-spacing: -0.05em; /* Detalle crítico: letras pegadas horizontalmente */
+    margin-bottom: 28px;
+    color: #000;
+    text-transform: none;
 }
 
-p {
-    color: #666;
+.left-content p {
     font-size: 1rem;
-    line-height: 1.6;
-    max-width: 320px;
+    color: #666; /* Gris sutil para jerarquía visual */
+    line-height: 1.4;
+    max-width: 330px; /* Mantiene el texto en un bloque estrecho */
+    margin-bottom: 40px;
+    font-weight: 400;
 }
 
+/* Botón Estilo Pill */
 .button {
-    background-color: #000;
+    background-color: #1a1a1a;
     color: #fff;
-    padding: 12px 28px;
+    padding: 14px 42px;
+    border-radius: 50px;
     border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
     width: fit-content;
-    transition: background-color 0.2s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .button:hover {
-    background-color: #333;
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* ─── COLUMNA DERECHA: imágenes en cascada ─── */
+/* --- 4. Composición de Imágenes (Derecha) --- */
 .right-content {
     flex: 1;
     position: relative;
-    min-height: 550px;
+    height: 800px; /* Espacio para el despliegue vertical */
+    margin-left: -20px;
 }
 
-.image-1 {
+.image-card {
     position: absolute;
+    border-radius: 32px; /* Bordes muy redondeados según referencia */
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    background: #f5f5f5;
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Posicionamiento milimétrico */
+.img-blue { /* Imagen superior derecha */
     top: 0;
     right: 0;
-    width: 42%;
-    border-radius: 12px;
-    z-index: 2;
+    width: 300px;
+    height: 420px;
+    z-index: 1;
 }
 
-.image-2 {
-    position: absolute;
-    top: 100px;
-    left: 10%;
-    width: 42%;
-    border-radius: 12px;
-    z-index: 2;
+.img-purple { /* Imagen central (La más importante) */
+    top: 48%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 460px;
+    z-index: 5; /* Queda sobre las demás */
 }
 
-.image-3 {
-    position: absolute;
+.img-pink { /* Imagen inferior izquierda */
     bottom: 0;
-    left: 30%;
-    width: 42%;
-    border-radius: 12px;
+    left: 8%;
+    width: 310px;
+    height: 430px;
     z-index: 2;
 }
 
-/* ─── PERFIL + TEXTO INFERIOR ─── */
-.profile-block {
-    position: absolute;
-    bottom: 20px;
-    right: 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    max-width: 280px;
-    z-index: 10;
-}
-
-.profile {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    object-fit: cover;
-}
-
-.text-bottom {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* ─── DECORACIONES: absolutas respecto al container ─── */
+/* --- 5. Decoraciones (Detalles Abstractos) --- */
 .decoration {
     position: absolute;
-    opacity: 0.5;
-    z-index: 1;
     pointer-events: none;
 }
 
 .wave {
-    top: 20px;
-    left: 36%;
-    width: 18rem;
+    top: 40px;
+    left: 35%;
+    width: 260px;
+    opacity: 0.8;
+}
+
+.star-center {
+    top: 48%;
+    left: 28%; /* Justo en el punto de tensión entre texto e imagen */
+    width: 150px;
+    z-index: 6; /* Por encima de la imagen púrpura */
+    transform: translateY(-50%);
+}
+
+.star-bottom {
+    bottom: 120px;
+    right: 6%;
+    width: 190px;
+    z-index: 1;
 }
 
 .spiral {
-    bottom: 80px;
-    left: 28%;
-    width: 7rem;
+    bottom: 60px;
+    left: -40px;
+    width: 140px;
 }
 
-.star-1 {
-    top: 45%;
-    left: 32%;
-    width: 10rem;
+/* --- 6. Perfil y Texto Inferior --- */
+.profile-block {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 380px;
+    z-index: 20;
 }
 
-.star-2 {
-    bottom: 15%;
-    right: 8%;
-    width: 10rem;
+.profile {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 2px solid #fff;
 }
 
-/* ─── TABLET (max 1024px) ─── */
-@media (max-width: 1024px) {
-    .container {
-        padding: 32px 36px;
-        gap: 24px;
-    }
-
-    h1 {
-        font-size: 3.5rem;
-    }
-
-    .left-content {
-        width: 40%;
-    }
-
-    .wave {
-        width: 12rem;
-        left: 38%;
-    }
-
-    .image-1, .image-2, .image-3 {
-        width: 46%;
-    }
+.text-bottom {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.4;
 }
 
-/* ─── MÓVIL (max 768px) ─── */
-@media (max-width: 768px) {
+/* --- 7. Ajustes Responsivos (Móvil y Tablet) --- */
+@media (max-width: 1100px) {
+    .container { padding: 60px 4%; }
+    h1 { font-size: 4rem; }
+    .img-pink { left: 0; }
+}
+
+@media (max-width: 850px) {
     .container {
         flex-direction: column;
-        padding: 32px 24px;
-        gap: 32px;
-        overflow: visible;
+        padding: 40px 20px;
     }
-
+    
     .left-content {
         width: 100%;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 60px;
     }
+    
+    .left-content p { margin: 0 auto 30px; }
 
-    h1 {
-        font-size: 2.8rem;
-    }
-
-    p {
-        max-width: 100%;
-    }
-
-    /* Imágenes en fila de 2 en móvil */
     .right-content {
         width: 100%;
-        min-height: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        position: relative;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 0;
     }
 
-    .image-1, .image-2, .image-3 {
+    .image-card {
         position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
         width: 100%;
-        border-radius: 10px;
+        height: 450px;
+        top: auto; left: auto; right: auto; transform: none;
     }
 
-    .image-1 { grid-column: 2; grid-row: 1; }
-    .image-2 { grid-column: 1; grid-row: 1; }
-    .image-3 { grid-column: 1 / span 2; grid-row: 2; height: 200px; object-fit: cover; }
-
+    .decoration { display: none; } /* Limpieza visual en móviles */
+    
     .profile-block {
         position: relative;
-        bottom: auto;
+        margin-top: 40px;
         right: auto;
-        max-width: 100%;
-        margin-top: 8px;
     }
-
-    /* Ocultar decoraciones en móvil para no saturar */
-    .wave, .spiral, .star-1, .star-2 {
-        display: none;
-    }
-}
-
-/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
-@media (max-width: 480px) {
-    .container {
-        padding: 24px 16px;
-    }
-
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    .right-content {
-        grid-template-columns: 1fr;
-    }
-
-    .image-1 { grid-column: 1; grid-row: 1; }
-    .image-2 { grid-column: 1; grid-row: 2; }
-    .image-3 { grid-column: 1; grid-row: 3; height: auto; }
 }
