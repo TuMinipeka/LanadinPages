@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #fff;
+    color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+/* ── WRAPPER ── */
+.general {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ══════════════════════════════════════
+   UP-CONTENT — Hero
+   [texto izq] [dos círculos der]
+══════════════════════════════════════ */
+.up-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    padding: 64px 0 0 0;
+    position: relative;
+}
+
+/* ── Título ── */
+.up-content h1 {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #111;
+    margin-bottom: 24px;
+}
+
+/* ── Párrafo ── */
+.up-content > p {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+    color: #555;
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 300px;
+}
+
+/* ── Botón ── */
+.up-content button {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: start;
+    justify-self: start;
+    background: #8b4a3a;
+    color: #fff;
+    border: none;
+    padding: 14px 38px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background 0.25s, transform 0.2s;
+    margin-bottom: 64px;
+}
+
+.up-content button:hover {
+    background: #6e3a2c;
+    transform: scale(1.03);
+}
+
+/* ── Dos círculos de café ──
+   Imagen única que contiene ambos círculos */
+.up-content-image {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: start;
+    justify-self: center;
+    position: relative;
+}
+
+.up-content-image img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+}
+
+/* ══════════════════════════════════════
+   STATS — tarjeta beige flotante
+   Sobresale sobre el fondo oscuro
+══════════════════════════════════════ */
+
+
+.medium img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 999px;   /* la imagen ya tiene el diseño interno */
+}
+
+/* ══════════════════════════════════════
+   UNDER-CONTENT — Galería oscura
+   Fondo marrón oscuro, 5 fotos en fila
+══════════════════════════════════════ */
+.under-content {
+    grid-column: 1 / 3;
+    grid-row: 5;
+    background-color: #403738;
+    border-radius: 0;
+    margin: 0 -40px;         /* extiende al ancho completo */
+    padding: 80px 40px 48px; /* padding top para que la tarjeta stats flote */
+    margin-top: -40px;       /* se mete debajo de la tarjeta */
+}
+
+.under-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .general { padding: 0 24px; }
+
+    .up-content {
+        grid-template-columns: 1fr;
+        padding: 48px 0 0;
+    }
+
+    .up-content h1       { grid-column: 1; grid-row: 1; }
+    .up-content > p      { grid-column: 1; grid-row: 2; }
+    .up-content button   { grid-column: 1; grid-row: 3; margin-bottom: 40px; }
+
+    .up-content-image {
+        grid-column: 1;
+        grid-row: 4;
+        justify-self: center;
+        margin-bottom: 32px;
+    }
+
+    .up-content-image img { max-width: 340px; }
+
+    .medium {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .under-content {
+        grid-column: 1;
+        grid-row: 6;
+        margin: -30px -24px 0;
+        padding: 70px 24px 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .general { padding: 0 16px; }
+
+    .up-content-image img { max-width: 280px; }
+
+    .under-content {
+        margin: -30px -16px 0;
+        padding: 70px 16px 36px;
+    }
+}
