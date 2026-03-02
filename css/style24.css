@@ -1,0 +1,207 @@
+/* --- Variables y Reset --- */
+:root {
+    --primary-yellow: #eebf3d; /* Amarillo mostaza */
+    --text-dark: #222222;
+    --card-bg: #1f1f1f; /* Fondo oscuro tarjetas */
+    --text-light: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text-dark);
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+/* --- Contenedor Principal --- */
+.general {
+    max-width: 70%;
+    margin: auto;
+    padding: 140px 0px;
+    position: relative;
+    overflow: hidden; /* Para contener las formas decorativas */
+}
+
+/* --- Grid Layout (Magia aquí) --- */
+.content {
+    display: grid;
+    /* Definimos 2 columnas: Texto (1.2fr) e Imagen (0.8fr) */
+    grid-template-columns: 1.2fr 0.8fr; 
+    grid-template-rows: auto auto auto auto; /* H1, P, Button, Cards */
+    gap: 20px;
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Asignamos áreas específicas a cada elemento para mantener el orden visual */
+.content h1 { grid-column: 1; grid-row: 1; }
+.content p { grid-column: 1; grid-row: 2; }
+.button { grid-column: 1; grid-row: 3; justify-self: start; }
+.under-content { grid-column: 1; grid-row: 4; margin-top: 40px;}
+
+/* La imagen ocupa toda la altura de la derecha (filas 1 a 5) */
+.content-img { 
+    grid-column: 2; 
+    grid-row: 1 / span 5; 
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinea la imagen abajo */
+}
+
+/* --- Estilos de Tipografía --- */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* La línea decorativa debajo del título */
+h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--text-dark);
+    margin-top: 25px;
+}
+
+/* Color amarillo para las palabras clave */
+.highlight {
+    color: var(--primary-yellow);
+}
+
+p {
+    color: #555;
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+/* --- Botón --- */
+.button {
+    background-color: var(--primary-yellow);
+    color: var(--text-dark);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Bordes redondos tipo píldora */
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(238, 191, 61, 0.4);
+}
+
+/* --- Imagen y Formas Decorativas --- */
+.content-img img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 2; /* Encima de la forma amarilla */
+    filter: grayscale(100%); /* Efecto blanco y negro */
+}
+
+/* La forma amarilla detrás de la guitarra */
+.content-img::before {
+    content: '';
+    position: absolute;
+    top: -50px; /* Ajustar según necesites */
+    right: 0;
+    width: 250px;
+    height: 400px;
+    background-color: var(--primary-yellow);
+    border-radius: 150px 150px 0 0; /* Redondeado arriba */
+    z-index: 1;
+}
+
+/* --- Tarjetas Inferiores (Stats) --- */
+.grid-state {
+    display: flex;
+    gap: 20px;
+}
+
+.state {
+    background-color: var(--card-bg);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 140px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.state .icon {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.state h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-family: 'Open Sans', sans-serif; /* Números sans-serif */
+}
+
+.state p {
+    font-size: 0.7rem;
+    color: #aaa;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- RESPONSIVE DESIGN (Móvil) --- */
+@media screen and (max-width: 900px) {
+    .content {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-rows: auto;
+        text-align: center; /* Centrar todo en móvil */
+    }
+
+    /* Reordenamos para móvil: Título primero, luego imagen, luego tarjetas */
+    .content h1 { grid-column: 1; grid-row: 1; }
+    .content p { grid-column: 1; grid-row: 2; margin: 0 auto 20px; }
+    .button { grid-column: 1; grid-row: 3; justify-self: center; margin-bottom: 40px;}
+    
+    .content-img { 
+        grid-column: 1; 
+        grid-row: 4; 
+        height: auto;
+        margin-bottom: 40px;
+    }
+    
+    .under-content { grid-column: 1; grid-row: 5; width: 100%; }
+
+    .grid-state {
+        justify-content: center; /* Centrar tarjetas */
+        flex-wrap: wrap; /* Permitir que bajen si no caben */
+    }
+
+    h1 { font-size: 2.5rem; }
+    h1::after { margin: 20px auto; /* Centrar la línea decorativa */ }
+    
+    /* Ajuste de la forma amarilla en móvil */
+    .content-img::before {
+        height: 300px;
+        width: 200px;
+        right: 50%;
+        transform: translateX(50%); /* Centrar detrás de la imagen */
+    }
+}
