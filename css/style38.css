@@ -1,208 +1,272 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap');
+
+/* ── RESET ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --verde:       #2d6a2d;   /* texto GREEN y botón */
+  --oscuro:      #111111;
+  --gris-texto:  #555555;
+  --gris-fondo:  #f0f0ec;   /* blob gris detrás del texto */
+  --blanco:      #ffffff;
+  --radio:       20px;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fff;
-    color: #222;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: #e8e8e4;   /* fondo exterior gris para ver el card centrado */
+  color: var(--oscuro);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
 }
 
-/* ─── HERO ─── */
+/* ══════════════════════════════════
+   HERO SECTION
+   ══════════════════════════════════ */
+/* ── Wrapper centrado ── */
+.wrapper {
+  width: 100%;
+  max-width: 900px;
+  background: var(--blanco);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.09);
+}
+
 .plant-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-    padding: 60px 10%;
-    background: #f9f9f9;
-    border-radius: 0 0 40px 40px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: auto;
+  padding: 48px 5% 40px 6%;
+  overflow: hidden;
 }
 
-/* ─── TEXTO IZQUIERDO ─── */
+/* ── Blob gris redondeado detrás del texto ──
+   Ocupa la mitad izquierda con forma orgánica */
+.plant-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Cuarto de círculo: solo esquina superior izquierda */
+  width: 56%;
+  height: 90%;
+  background-color: var(--gris-fondo);
+  border-radius: 0 0 50% 0;   /* curva solo en la esquina inferior derecha */
+  z-index: 0;
+}
+
+/* Logo/sello circular — arriba derecha, encima de la imagen */
+.plant-hero > img:first-child {
+  position: absolute;
+  top: 4%;
+  right: 3%;
+  width: clamp(75px, 9vw, 115px);
+  z-index: 5;
+}
+
+/* ── COLUMNA TEXTO ── */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 480px;
+}
+
 .hero-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    line-height: 1.3;
-    color: #111;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.22;
+  color: var(--oscuro);
 }
 
+/* Palabra GREEN y BETTER */
 .green {
-    color: #2e7d32;
+  color: var(--verde);
 }
 
 .hero-text > p {
-    font-size: 1rem;
-    margin-bottom: 28px;
-    color: #555;
-    line-height: 1.6;
+  font-size: clamp(0.85rem, 1vw, 0.97rem);
+  color: var(--gris-texto);
+  line-height: 1.7;
+  max-width: 360px;
 }
 
-/* ─── STATS ─── */
+/* ── Stats: 3 columnas ── */
 .stats {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 28px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
 }
 
 .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .stat-item h3 {
-    font-size: 1.4rem;
-    color: #111;
-    margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--oscuro);
+  margin: 0;
 }
 
+/* Línea bajo el número */
 .stat-item hr {
-    border: none;
-    border-top: 2px solid #ccc;
-    width: 100%;
-    margin: 2px 0;
+  width: 36px;
+  border: none;
+  border-top: 1.5px solid #aaa;
+  margin: 4px 0;
 }
 
 .stat-item p {
-    font-size: 0.82rem;
-    color: #777;
-    margin: 0;
-    line-height: 1.4;
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+  line-height: 1.5;
 }
 
-.hero-text button {
-    background: #2e7d32;
-    color: #fff;
-    border: none;
-    padding: 13px 32px;
-    border-radius: 30px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s;
+/* ── Botón verde pill ── */
+button {
+  width: fit-content;
+  background: var(--verde);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
 }
 
-.hero-text button:hover {
-    background: #256427;
+button:hover {
+  background: #1e4e1e;
+  transform: translateY(-2px);
 }
 
-/* ─── IMAGEN + LOGO ─── */
+/* ── COLUMNA IMAGEN ── */
 .hero-image {
-    position: relative;
-    display: flex;
-    justify-content: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.hero-image > img {
-    width: 100%;
-    max-width: 560px;
-    height: auto;
-    object-fit: contain;
+.hero-image img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
-/* Logo circular flotando arriba a la derecha */
-.logo-circle {
-    position: absolute;
-    top: -20px;
-    right: 0;
-    z-index: 10;
-}
-
-.logo-circle img {
-    width: 90px;
-    height: 90px;
-    object-fit: contain;
-}
-
-/* ─── CARDS ─── */
+/* ══════════════════════════════════
+   CARDS SECTION — 3 columnas
+   ══════════════════════════════════ */
 .plant-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 40px 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 0 5% 28px 5%;
 }
 
 .card {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 18px 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: #fff;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card img {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-.card p {
-    font-size: 0.88rem;
-    color: #444;
-    line-height: 1.5;
-    margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #e0ddd8;
+  border-radius: var(--radio);
+  padding: 18px 20px;
+  transition: box-shadow 0.2s;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
 }
 
-/* ─── TABLET (max 1024px) ─── */
-@media (max-width: 1024px) {
-    .plant-hero {
-        padding: 50px 6%;
-        gap: 28px;
-    }
-
-    .hero-text h1 {
-        font-size: 2rem;
-    }
-
-    .plant-cards {
-        padding: 32px 6%;
-    }
+/* Imagen pequeña cuadrada redondeada */
+.card img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  background: #f5f5f0;
 }
 
-/* ─── MÓVIL GRANDE (max 900px) ─── */
-@media (max-width: 900px) {
-    .plant-hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 40px 8%;
-    }
-
-    .hero-image {
-        order: -1;
-    }
-
-    .logo-circle {
-        top: 0;
-        right: 10px;
-    }
-
-    .stats {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .stat-item {
-        align-items: center;
-    }
-
-    .hero-text button {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .plant-cards {
-        grid-template-columns: 1fr 1fr;
-    }
+.card p {
+  font-size: 0.8rem;
+  color: var(--gris-texto);
+  line-height: 1.6;
 }
 
+/* ══════════════════════════════════
+   RESPONSIVE — TABLET < 860px
+   ══════════════════════════════════ */
+@media (max-width: 860px) {
+  .plant-hero {
+    grid-template-columns: 1fr;
+    padding: 40px 5%;
+    min-height: auto;
+    gap: 32px;
+  }
+
+  /* El blob ocupa toda la parte superior */
+  .plant-hero::before {
+    width: 100%;
+    height: 55%;
+    border-radius: 0 0 50% 50% / 0 0 40% 40%;
+    top: 0;
+  }
+
+  .plant-hero > img:first-child {
+    top: 3%;
+    right: 4%;
+    width: 80px;
+  }
+
+  .hero-text { max-width: 100%; }
+
+  .hero-image img {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .plant-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE — MÓVIL < 520px
+   ══════════════════════════════════ */
+@media (max-width: 520px) {
+  .plant-hero { padding: 32px 4%; }
+
+  .hero-text h1 { font-size: 1.65rem; }
+
+  .stats { gap: 20px; }
+  .stat-item h3 { font-size: 1.1rem; }
+
+  .hero-image img { max-width: 280px; }
+
+  .plant-cards { padding: 20px 4%; }
+
+  .card img { width: 58px; height: 58px; }
+}

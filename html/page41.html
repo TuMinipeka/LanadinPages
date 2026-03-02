@@ -8,51 +8,55 @@
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="house-hero">
-    <div class="hero-text">
-      <h1>We build your dream <br> house with our passion</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Cursus imperdiet sed id elementum. Quam vel aliquam sit vulputate. 
-        Faucibus nec gravida ipsum pulvinar vel.
-      </p>
-      <button>Get started</button>
-    </div>
+  <div class="layout">
 
-    <div class="hero-image">
-      <img src="../image/pag1/img70.png" alt="Modern House">
+    <!-- ══ COLUMNA IZQUIERDA: todo el contenido textual ══ -->
+    <div class="left-col">
 
-      <!-- Círculo decorativo -->
-      <div class="circle">Lorem ipsum dolor sit amet ·</div>
-    </div>
-  </section>
+      <!-- Título + párrafo + botón -->
+      <div class="hero-text">
+        <h1>We build your dream house with our passion</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+           Cursus imperdiet sed id elementum. Quam vel aliquam sit
+           vulputate. Faucibus nec gravida ipsum pulvinar vel.</p>
+        <button>Get started</button>
+      </div>
 
-  <!-- Stats Section -->
-  <section class="stats-cards">
-    <div class="card blue">
-      <h3>178K+</h3>
-      <p>Lorem ipsum dolor amet, consectetur adipiscing elit. 
-        Faucibus in libero. Lorem ipsum dolor amet.</p>
-    </div>
-    <div class="card gray">
-      <h3>362</h3>
-      <p>Lorem ipsum dolor amet, consectetur adipiscing elit. 
-        Faucibus in libero. Lorem ipsum dolor amet.</p>
-    </div>
-  </section>
+      <!-- Stats: dos cards en fila -->
+      <div class="stats-row">
+        <div class="stat-card blue">
+          <h3>178K+</h3>
+          <p>Lorem ipsum dolor amet, consectetur adipiscing elit.
+             Faucibus in libero. Lorem ipsum dolor amet,</p>
+        </div>
+        <div class="stat-card gray">
+          <h3>362</h3>
+          <p>Lorem ipsum dolor amet, consectetur adipiscing elit.
+             Faucibus in libero. Lorem ipsum dolor amet,</p>
+        </div>
+      </div>
 
-  <!-- Bottom Card -->
-  <section class="bottom-card">
-    <div class="card">
-      <h3>Title</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus in libero. 
-        Lorem ipsum dolor amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="card-img">
-      <img src="../image/pag1/2.png" alt="Luxury House">
-    </div>
-  </section>
+      <!-- Card inferior: texto a la izquierda, imagen a la derecha -->
+      <div class="bottom-card">
+        <div class="bottom-text">
+          <h3>Title</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+             Faucibus in libero. Lorem ipsum dolor amet, Lorem ipsum
+             dolor amet, consectetur adipiscing elit.</p>
+        </div>
+        <img src="../image/pag1/2.png" alt="Luxury House">
+      </div>
+
+    </div><!-- fin .left-col -->
+
+    <!-- ══ COLUMNA DERECHA: imagen grande ══ -->
+    <div class="right-col">
+
+      <!-- Imagen de la casa, ocupa toda la columna -->
+      <img src="../image/pag1/img70.png" alt="Modern House" class="house-img">
+    </div><!-- fin .right-col -->
+
+  </div>
 
 </body>
 </html>

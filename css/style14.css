@@ -1,178 +1,200 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ══════════════════════════════
+   GOOGLE FONTS
+   ══════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ══════════════════════════════
+   RESET Y VARIABLES
+   ══════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --marron:      #3a2518;
+  --marron-card: #3d2b1a;
+  --amarillo:    #f5c842;
+  --gris-texto:  #555;
+  --blanco:      #ffffff;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  background-color: #fff;
+  color: var(--marron);
+  overflow-x: hidden;
 }
 
-/* ─── LAYOUT: dos columnas ─── */
+/* ══════════════════════════════
+   CONTENEDOR — dos columnas
+   ══════════════════════════════ */
 .container {
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    padding: 60px;
-    gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 60px 5%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-/* ─── COLUMNA IZQUIERDA ─── */
+/* ══════════════════════════════
+   COLUMNA IZQUIERDA
+   ══════════════════════════════ */
 .left-content {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  width: 42%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 }
 
+/* ── Título ── */
 h1 {
-    font-size: 3rem;
-    color: #2b1a00;
-    font-weight: 800;
-    line-height: 1.15;
+  font-size: clamp(1.9rem, 3vw, 3.2rem);
+  font-weight: 800;
+  color: var(--marron);
+  line-height: 1.18;
+  margin-bottom: 20px;
 }
 
+/* ── Párrafo ── */
 .description {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.7;
-    max-width: 380px;
+  font-size: clamp(0.87rem, 1vw, 1rem);
+  color: var(--gris-texto);
+  line-height: 1.7;
+  max-width: 380px;
+  margin-bottom: 32px;
 }
 
+/* ── Botón amarillo pill ── */
 .button {
-    background-color: #ebd65e;
-    color: #333;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1rem;
-    width: fit-content;
-    transition: background-color 0.2s;
+  width: fit-content;
+  background-color: var(--amarillo);
+  color: var(--marron);
+  border: none;
+  border-radius: 50px;
+  padding: 14px 36px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 48px;
+  transition: background 0.25s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(245, 200, 66, 0.4);
 }
 
 .button:hover {
-    background-color: #e6c200;
+  background-color: #e8b820;
+  transform: translateY(-2px);
 }
 
-/* ─── STATS ─── */
+/* ══════════════════════════════
+   TARJETA DE ESTADÍSTICAS
+   ══════════════════════════════ */
 .stats-container {
-    display: flex;
-    justify-content: space-between;
-    background-color: #2b2114;
-    padding: 24px 28px;
-    border-radius: 12px;
-    gap: 12px;
-    max-width: 420px;
+  background-color: var(--marron-card);
+  border-radius: 18px;
+  padding: 28px 32px;
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
 }
 
+/* Cada stat: número + línea + texto */
 .stat {
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--blanco);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-.stat span {
-    font-size: 0.75rem;
-    color: #ccc;
-    font-weight: 400;
+/* La imagen Rectangle 5 es la línea separadora */
+.stat span:first-of-type img {
+  width: 28px;
+  height: auto;
+  display: block;
+  opacity: 0.5;
 }
 
-.stat img {
-    width: 40px;
-    height: auto;
-    opacity: 0.6;
+/* Texto descriptivo bajo la línea */
+.stat span:last-of-type {
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
 }
 
-/* ─── COLUMNA DERECHA ─── */
+/* ══════════════════════════════
+   COLUMNA DERECHA — imagen única
+   ══════════════════════════════ */
 .right-content {
-    width: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* La imagen trae toda la composición (tarjetas, teléfono, decoraciones) */
 .main-image {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE — TABLET < 860px
+   ══════════════════════════════ */
+@media (max-width: 860px) {
+  .container {
+    flex-direction: column;
+    padding: 48px 5%;
+    min-height: auto;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .left-content {
     width: 100%;
-    max-width: 620px;
-    height: auto;
-    object-fit: contain;
+  }
+
+  .description { max-width: 100%; }
+
+  .right-content {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .main-image {
+    max-width: 500px;
+  }
 }
 
-/* ─── TABLET (max 1024px) ─── */
-@media (max-width: 1024px) {
-    .container {
-        padding: 40px 36px;
-        gap: 28px;
-    }
+/* ══════════════════════════════
+   RESPONSIVE — MÓVIL < 520px
+   ══════════════════════════════ */
+@media (max-width: 520px) {
+  .container { padding: 32px 4%; gap: 32px; }
 
-    h1 {
-        font-size: 2.4rem;
-    }
+  h1 { font-size: 1.85rem; }
 
-    .left-content {
-        width: 48%;
-    }
+  .button { padding: 12px 28px; font-size: 0.88rem; }
 
-    .right-content {
-        width: 52%;
-    }
-}
+  .stats-container {
+    padding: 20px;
+    gap: 20px;
+  }
 
-/* ─── MÓVIL (max 768px) ─── */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 40px 24px;
-        gap: 32px;
-        align-items: flex-start;
-    }
+  /* En móvil muy pequeño las stats se apilan */
+  @media (max-width: 360px) {
+    .stats-container { flex-direction: column; gap: 16px; }
+  }
 
-    .left-content,
-    .right-content {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .description {
-        max-width: 100%;
-    }
-
-    .stats-container {
-        max-width: 100%;
-    }
-
-    .main-image {
-        max-width: 100%;
-    }
-}
-
-/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
-@media (max-width: 480px) {
-    .container {
-        padding: 28px 16px;
-    }
-
-    h1 {
-        font-size: 1.6rem;
-    }
-
-    .stats-container {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .button {
-        width: 100%;
-        text-align: center;
-    }
+  .main-image { max-width: 100%; }
 }
