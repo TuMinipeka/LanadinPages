@@ -1,95 +1,164 @@
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  color: #1f1f1f;
-  background: #fff;
-  line-height: 1.6;
+/* --- Reset y Configuración de Pantalla --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ====== Layout principal ====== */
+body, html {
+    height: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1a1a1a;
+    background-color: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Contenedor Principal (Casi toda la pantalla) --- */
+main {
+    min-height: 100vh; /* Ocupa el alto de la pantalla */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center;
+    padding: 40px 5%;
+}
+
 .explore {
-  margin: 2.5rem auto 2rem;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;  
-  gap: 2.5rem;
-  align-items: start;
+    display: grid;
+    /* La imagen es la protagonista, el texto la acompaña */
+    grid-template-columns: 1.1fr 0.9fr; 
+    gap: 8vw; /* Espacio dinámico basado en el ancho de pantalla */
+    max-width: 1600px;
+    width: 100%;
+    align-items: center;
 }
 
-/* ---- Imagen izquierda ---- */
-.explore-image img {
-  width: 100%;
-  height: 700px;          
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
+/* --- Columna de Imagen (Impacto Visual) --- */
+.explore-image {
+    width: 100%;
+    height: 85vh; /* Ocupa el 85% de la altura de la ventana */
 }
-/* ---- Columna de texto ---- */
-.explore-text { padding-top: 0; }
+
+.explore-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción sin estirarse */
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05); /* Sombra muy sutil */
+}
+
+/* --- Columna de Texto (Jerarquía) --- */
+.explore-text {
+    padding-right: 20px;
+}
 
 .explore-text h1 {
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  line-height: 1.15;
-
-  font-size: clamp(2.2rem, 4.2vw, 3rem);
-  margin-bottom: 1rem;    
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1.5px; /* Detalle de diseño editorial */
+    margin-bottom: 2rem;
+    color: #111;
 }
 
 .explore-text .lead {
-  color: #555;
-  max-width: 480px;
-  margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    font-weight: 400;
 }
 
-
+/* --- Botón (Detalles de acabado) --- */
 .btn {
-  display: inline-block;
-  padding: 0.55rem 1.2rem;
-  background: #222;
-  color: #fff;
-  border-radius: 9999px;
-  font-size: 0.9rem;
-  text-decoration: none;
-  transition: background .25s ease;
-  margin-bottom: 2rem;    
+    display: inline-block;
+    background-color: #262626; /* Negro mate */
+    color: #fff;
+    padding: 16px 42px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 4rem; /* Gran separación según la imagen */
+    transition: all 0.3s ease;
 }
-.btn:hover { background: #3a3a3a; }
 
-/* ---- Puntos numerados ---- */
-.points { display: grid; gap: 1.6rem; }
+.btn:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* --- Puntos Numerados --- */
+.points {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
 
 .point {
-  display: flex;
-  flex-direction: column;  
-  gap: 0.3rem;             
-  max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 440px;
 }
 
-
 .point .number {
-  font-weight: 700;
-  color: #7a7a7a;
-  font-size: 1.1rem;
-  line-height: 1.1;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #a1a1a1; /* Gris medio para no distraer del H1 */
+    font-variant-numeric: tabular-nums;
 }
 
 .point p {
-  color: #444;
-  font-size: 0.98rem;
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    line-height: 1.7;
 }
 
-/* ====== Responsivo ====== */
-@media (max-width: 980px) {
-  .explore {
-    grid-template-columns: 1fr;  
-    gap: 1.8rem;
-    padding: 0 1rem;
-  }
+/* --- RESPONSIVIDAD (Ajustes de detalle) --- */
 
-  .explore-image img { height: 340px; }
-  .explore-text { max-width: 680px; }
-  .explore-text h1 { text-wrap: balance; }
+@media (max-width: 1024px) {
+    .explore {
+        gap: 40px;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .explore-image {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 850px) {
+    main {
+        padding: 60px 24px;
+        align-items: flex-start;
+    }
+
+    .explore {
+        grid-template-columns: 1fr;
+    }
+
+    .explore-image {
+        height: 400px;
+        order: -1; /* La imagen siempre arriba en móvil */
+        margin-bottom: 20px;
+    }
+
+    .explore-text h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        margin-bottom: 3rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .explore-text h1 br {
+        display: none;
+    }
 }
