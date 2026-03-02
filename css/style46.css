@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* ─── HERO: imagen de fondo completa ─── */
+.hero {
+    background-image: url('../image/pag1/soledad.jpg');
+    background-size: cover;
+    background-position: center 65%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Texto en la parte superior, persona queda abajo en la imagen */
+.hero-content {
+    text-align: center;
+    padding: 15vh 24px 0;
+    max-width: 640px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content button {
+    padding: 13px 32px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.hero-content button:hover {
+    background: #333;
+}
+
+/* ─── TABLET (max 768px) ─── */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 60px 20px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+}
+
+/* ─── MÓVIL (max 480px) ─── */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .hero-content button {
+        padding: 11px 26px;
+        font-size: 0.9rem;
+    }
+}
