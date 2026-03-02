@@ -1,88 +1,215 @@
-/* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: gray;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  background: #fff;
+    font-family: sans-serif;
+    background: #fff;
 }
 
-/* Layout principal: 2 columnas */
+/* ─── LAYOUT: 2 columnas ─── */
 .layout {
-  display: flex;
-  height: 100vh; /* ocupa toda la pantalla */
+    display: flex;
+    height: 100vh;
 }
 
-/* Columna izquierda (50% ancho) */
+/* ─── COLUMNA IZQUIERDA ─── */
 .left {
-  flex: 1; /* mitad izquierda */
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Parte superior izquierda (65% alto) */
+/* PARTE SUPERIOR: imagen de fondo + texto encima */
 .top-left {
-  flex: 65;
+    flex: 65;
+
+    position: relative;
+    overflow: hidden;
 }
 
-.top-left img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Parte inferior izquierda (35% alto con 2 imágenes) */
-.bottom-left {
-  flex: 35;
-  display: flex;
-}
-
-.bottom-left img {
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Columna derecha (50% ancho) */
-.right {
-  flex: 1;
-}
-
-.right img {
-  width: 100%;
-  height: 150%;
-  object-fit: cover;
-}
-
-/* 📱 Responsive: en móviles se apilan */
-@media (max-width: 768px) {
-  .layout {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .left,
-  .right {
-    flex: none;
+.top-left > img {
     width: 100%;
-  }
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
-  .top-left,
-  .bottom-left {
-    flex: none;
-    height: auto;
-  }
-
-  .bottom-left {
+/* Texto superpuesto sobre la imagen */
+.top-left-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 40px;
+    display: flex;
     flex-direction: column;
-  }
+    gap: 16px;
+}
 
-  .bottom-left img {
-    height: auto;
-  }
+.top-left-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.top-left-content p {
+    font-size: 1.5rem;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+.btn {
+    color: #000000;
+    background-color: #fff;
+    padding: 14px 30px;
+    border-radius: 24px;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    width: fit-content;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: rgba(244, 237, 237, 0.866);
+}
+
+/* PARTE INFERIOR: dos imágenes con etiqueta */
+.bottom-left {
+    flex: 35;
+    display: flex;
+}
+
+.bottom-item {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.bottom-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Número y texto sobre cada imagen inferior */
+.bottom-label {
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.bottom-label .num {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.bottom-label .desc {
+    font-size: 0.72rem;
+    color: #555;
+}
+
+/* ─── COLUMNA DERECHA ─── */
+.right {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #e8e8e8;
+}
+
+.right > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Número 01 arriba a la derecha */
+.right-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+    z-index: 10;
+}
+
+.right-label .num {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    display: block;
+}
+
+.right-label .desc {
+    font-size: 0.72rem;
+    color: #555;
+}
+
+/* ─── TABLET (max 1024px) ─── */
+@media (max-width: 1024px) {
+    .top-left-content h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ─── MÓVIL (max 768px) ─── */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left, .right {
+        flex: none;
+        width: 100%;
+    }
+
+    .top-left {
+        flex: none;
+        height: 45vh;
+    }
+
+    .bottom-left {
+        flex: none;
+        height: 25vh;
+    }
+
+    .right {
+        height: 55vh;
+    }
+
+    .right > img {
+        object-position: center top;
+    }
+}
+
+/* ─── MÓVIL PEQUEÑO (max 480px) ─── */
+@media (max-width: 480px) {
+    .top-left {
+        height: 40vh;
+    }
+
+    .top-left-content {
+        padding: 14px;
+    }
+
+    .top-left-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .bottom-left {
+        height: 22vh;
+    }
+
+    .right {
+        height: 45vh;
+    }
 }
