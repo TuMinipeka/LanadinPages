@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    color: #111;
+}
+
+.general {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ─── HERO ─── */
+.up-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.up-content h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #111;
+}
+
+.up-content > p {
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.button {
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 11px 30px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.button:hover { background: #333; }
+
+/* ─── GALERÍA: contenedor relativo ─── */
+.galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+/* Card blanca: position absolute sobre la imagen */
+.medium {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0 12px;
+}
+
+.grid-state {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.state {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 16px;
+    border-left: 1px solid #e0e0e0;
+}
+
+.state:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.state h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    padding-bottom: 6px;
+    border-bottom: 1.5px solid #ccc;
+}
+
+.state p {
+    font-size: 0.78rem;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* Imagen grande con padding-top para dejar espacio a la card */
+.img-main {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    padding-top: 90px; /* altura de la card */
+    background: #ccc;
+    /* padding-top en img no funciona — usamos un wrapper */
+}
+
+/* Wrapper para la imagen grande */
+.img-main-wrapper {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 320px;
+    margin-top: 90px; /* empuja hacia abajo dejando espacio a la card */
+}
+
+.img-main-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 3 imágenes iguales abajo */
+.bottom-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.bottom-images img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+}
+
+/* ─── TABLET (max 768px) ─── */
+@media (max-width: 768px) {
+    .up-content h1 { font-size: 1.6rem; }
+
+    .grid-state { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+    .state {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 12px;
+    }
+
+    .state:first-child { border-top: none; padding-top: 0; }
+
+    .img-main-wrapper { margin-top: 140px; height: 240px; }
+
+    .bottom-images { grid-template-columns: 1fr 1fr; }
+    .bottom-images img:last-child { grid-column: 1 / 3; }
+}
+
+/* ─── MÓVIL (max 480px) ─── */
+@media (max-width: 480px) {
+    .general { padding: 32px 16px; }
+    .up-content h1 { font-size: 1.3rem; }
+
+    .grid-state { grid-template-columns: 1fr; }
+
+    .medium { position: relative; }
+    .img-main-wrapper { margin-top: 0; height: 180px; }
+
+    .bottom-images { grid-template-columns: 1fr; }
+    .bottom-images img:last-child { grid-column: 1; }
+}
