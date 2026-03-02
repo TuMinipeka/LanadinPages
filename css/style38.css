@@ -18,14 +18,13 @@
 
 body {
   font-family: 'DM Sans', Arial, sans-serif;
-  background: #e8e8e4;   /* fondo exterior gris para ver el card centrado */
+  background: var(--blanco);   /* fondo exterior gris para ver el card centrado */
   color: var(--oscuro);
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 24px;
 }
 
 /* ══════════════════════════════════
@@ -34,11 +33,9 @@ body {
 /* ── Wrapper centrado ── */
 .wrapper {
   width: 100%;
-  max-width: 900px;
+  max-width: 920px;
   background: var(--blanco);
-  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 6px 32px rgba(0,0,0,0.09);
 }
 
 .plant-hero {

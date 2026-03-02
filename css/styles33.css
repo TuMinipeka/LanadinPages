@@ -83,7 +83,7 @@ body {
 }
 
 .tarjeta-info {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #000000;
   border-radius: 25px;
   padding: 20px 30px;
   display: flex;
@@ -130,6 +130,7 @@ body {
   width: 100%;
   height: auto;
   border-radius: 30px;
+  border: 1px solid #000;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   display: block;
