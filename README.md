@@ -5,6 +5,7 @@
 
 
 **Colección de landing pages modernas, responsivas y listas para usar — con galería de navegación visual**
+**Trabajo Grupal:https://github.com/TuMinipeka/LandingPageGlobal
 
 [🌐 Demo en Vivo](#) · [🐛 Reportar Bug](#) · [⭐ Dale una Estrella](#)
 
